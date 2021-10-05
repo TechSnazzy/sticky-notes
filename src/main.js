@@ -1,4 +1,8 @@
 /*
+Declare some things.
+/*
+
+/*
 Retrieve all the existing notes
 from the local storage of the client browser.
 */
