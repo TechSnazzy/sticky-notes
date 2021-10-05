@@ -1,10 +1,16 @@
+/*
+Declare some things.
+*/
 const notesContainer = document.getElementById('app');
+const addNoteButton = notesContainer.querySelector('.add-note');
 
 /*
-Retrieve all the existing notes
+Get all the existing notes
 from the local storage of the client browser.
 */
-function getNotes() {}
+function getNotes() {
+  return JSON.parse(localStorage.getItem('stickynotes-notes') || '[]');
+}
 
 /*
 This will take in an array of notes
