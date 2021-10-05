@@ -4,6 +4,11 @@ Declare some things.
 const notesContainer = document.getElementById('app');
 const addNoteButton = notesContainer.querySelector('.add-note');
 
+getNotes().forEach((note) => {
+  const noteElement = createNoteElement(note.id, note.content);
+  notesContainer.insertBefore(noteElement, addNoteButton);
+});
+
 /*
 Get all the existing notes
 from the local storage of the client browser.
@@ -68,5 +73,5 @@ Delete a note.
 */
 function deleteNote(id, element) {
   console.log('Deleting Note...');
-  console.log(id, newContent);
+  console.log(id);
 }
