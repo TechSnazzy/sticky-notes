@@ -25,7 +25,29 @@ function saveNotes(notes) {
 Build a new element to represent a note element.
 The element is an html element.
 */
-function createNoteElement(id, content) {}
+function createNoteElement(id, content) {
+  const element = document.createElement('textarea');
+
+  element.classList.add('note');
+  element.value = content;
+  element.placeholder = 'Empty Sticky Note';
+
+  element.addEventListener('change', () => {
+    updateNote(id, element.value);
+  });
+
+  element.addEventListener('dblclick', () => {
+    const doDelete = confirm(
+      'Are you sure you wish to delete this sticky note?'
+    );
+
+    if (doDelete) {
+      deleteNote(id, element);
+    }
+  });
+
+  return element;
+}
 
 /*
 Adding a new note not only to the HTML but
@@ -36,9 +58,15 @@ function addNote() {}
 /*
 This will update your note instead of adding a new one.
 */
-function updateNote(id, newContent) {}
+function updateNote(id, newContent) {
+  console.log('Updating Note...');
+  console.log(id, newContent);
+}
 
 /*
 Delete a note.
 */
-function deleteNote(id, element) {}
+function deleteNote(id, element) {
+  console.log('Deleting Note...');
+  console.log(id, newContent);
+}
