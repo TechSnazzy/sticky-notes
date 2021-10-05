@@ -9,6 +9,8 @@ getNotes().forEach((note) => {
   notesContainer.insertBefore(noteElement, addNoteButton);
 });
 
+addNoteButton.addEventListener('click', () => addNote());
+
 /*
 Get all the existing notes
 from the local storage of the client browser.
@@ -58,7 +60,19 @@ function createNoteElement(id, content) {
 Adding a new note not only to the HTML but
 also saving it to the local storage of the client browser.
 */
-function addNote() {}
+function addNote() {
+  const notes = getNotes();
+  const noteObject = {
+    id: Math.floor(Math.random() * 100000),
+    content: '',
+  };
+
+  const noteElement = createNoteElement(noteObject.id, noteObject.content);
+  notesContainer.insertBefore(noteElement, addNoteButton);
+
+  notes.push(noteObject);
+  saveNotes(notes);
+}
 
 /*
 This will update your note instead of adding a new one.
