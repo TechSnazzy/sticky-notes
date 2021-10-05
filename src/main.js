@@ -78,14 +78,19 @@ function addNote() {
 This will update your note instead of adding a new one.
 */
 function updateNote(id, newContent) {
-  console.log('Updating Note...');
-  console.log(id, newContent);
+  const notes = getNotes();
+  const targetNote = notes.filter((note) => note.id == id)[0];
+
+  targetNote.content = newContent;
+  saveNotes(notes);
 }
 
 /*
 Delete a note.
 */
 function deleteNote(id, element) {
-  console.log('Deleting Note...');
-  console.log(id);
+  const notes = getNotes().filter((notes) => notes.id != id);
+
+  saveNotes(notes);
+  notesContainer.removeChild(element);
 }
