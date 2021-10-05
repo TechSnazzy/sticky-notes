@@ -17,7 +17,9 @@ This will take in an array of notes
 and will save the local notes in the
 storage of the clients browser.
 */
-function saveNotes(notes) {}
+function saveNotes(notes) {
+  localStorage.setItem('stickynotes-notes', JSON.stringify(notes));
+}
 
 /*
 Build a new element to represent a note element.
